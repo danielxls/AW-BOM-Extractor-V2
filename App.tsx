@@ -125,7 +125,7 @@ const App: React.FC = () => {
         onLogout={handleLogout}
        />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-grow">
-        {currentView === AppView.Extractor ? renderExtractorContent() : <MetricsDashboard />}
+        {currentView === AppView.Extractor ? renderExtractorContent() : <MetricsDashboard data={bomData} />}
       </main>
     </div>
   );
