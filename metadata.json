@@ -1,0 +1,5 @@
+{
+  "name": "Anderson Webb - BOM Extractor",
+  "description": "An internal web application to upload scanned piping plan PDFs, extract Bill of Materials (BOM) using AI, audit the results, and export to Excel. The UI is designed to be clean, minimalist, and user-friendly, inspired by iLovePDF and Apple's design language.",
+  "requestFramePermissions": []
+}
