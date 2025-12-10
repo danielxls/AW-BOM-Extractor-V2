@@ -101,30 +101,18 @@ serve(async (req) => {
     } catch (error) {
         console.error("Error processing document:", error);
 
-        let availableModels = "Could not fetch models";
-        // Attempt to list models if we hit a 404 to help debug
-        if (error.message && error.message.includes('404') && apiKey) {
-            try {
-                // Manual fetch to list models since SDK might fail
-                const listResp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
-                const listData = await listResp.json();
-                if (listData.models) {
-                    availableModels = listData.models.map((m: any) => m.name).join(', ');
-                }
-            } catch (listErr) {
-                availableModels = `Failed to list: ${listErr.message}`;
-            }
-        }
+        // Log detailed error server-side only (visible in Supabase logs)
+        const errorMessage = error.message || "Unknown error occurred";
+        const errorDetails = error.toString();
+        console.error("Full error details:", errorDetails);
 
-        // Debug mode: Return 200 so the client can read the body
+        // Return sanitized error to client (no internal details exposed)
         return new Response(JSON.stringify({
-            error: error.message || "Unknown error occurred",
-            details: error.toString(),
-            availableModels: availableModels,
+            error: "Document processing failed. Please try again or contact support.",
             isError: true
         }), {
             headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-            status: 200,
+            status: 500,
         });
     }
 });

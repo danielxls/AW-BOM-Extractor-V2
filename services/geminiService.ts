@@ -66,9 +66,6 @@ const applyBusinessLogicConfidence = (baseConfidence: number, item: { ITEM: stri
 
 
 export const extractBOM = async (file: File, onProgress: (message: string) => void): Promise<BOMRecord[]> => {
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-  // NOTE: Validation for API key removed as it is now handled in the backend
-
   try {
     const pdfPart = await fileToGenerativePart(file);
 
