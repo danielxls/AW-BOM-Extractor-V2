@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+
+:root {
+    color-scheme: light dark;
+}
+
+
+@theme {
+    --color-primary: #06a8f9;
+
+    --color-background-light: #f5f7f8;
+    --color-background-dark: #0f1c23;
+
+    --color-brand-blue: #06a8f9;
+    --color-brand-blue-light: #e6f7ff;
+
+    --color-brand-gray-100: #F5F5F7;
+    --color-brand-gray-200: #EAEAEB;
+    --color-brand-gray-300: #D1D1D6;
+    --color-brand-gray-400: #AEAEB2;
+    --color-brand-gray-500: #8E8E93;
+    --color-brand-gray-600: #636366;
+    --color-brand-gray-700: #48484A;
+    --color-brand-gray-800: #2C2C2E;
+    --color-brand-gray-900: #1C1C1E;
+
+    --font-display: 'Inter', sans-serif;
+
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+
+    --animate-fade-in: fade-in 0.3s ease-out forwards;
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+}
