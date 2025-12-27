@@ -41,7 +41,6 @@ export interface BOMRecord {
   DrawingNo: string;
   IssuedApprovedDate?: string;
   BOM: BOMItem[];
-  processingTime?: number; // Time in seconds taken to process this file
 }
 
 export enum ExtractionStatus {
@@ -55,7 +54,6 @@ export enum ExtractionStatus {
 export enum AppView {
   Extractor = 'extractor',
   Dashboard = 'dashboard',
-  Consolidation = 'consolidation',
 }
 
 export interface LogEntry {
@@ -65,10 +63,10 @@ export interface LogEntry {
 }
 
 export interface ExtractionSummary {
-  filesProcessed: number;
-  successCount: number;
-  errorCount: number;
-  totalItems: number;
-  totalTime: number; // in seconds
-  completionReason: 'finished' | 'stopped';
+    filesProcessed: number;
+    successCount: number;
+    errorCount: number;
+    totalItems: number;
+    totalTime: number; // in seconds
+    completionReason: 'finished' | 'stopped';
 }
